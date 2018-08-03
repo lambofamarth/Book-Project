@@ -18,7 +18,10 @@ public class BookLoader extends AsyncTaskLoader<List<Book>> {
     @Nullable
     @Override
     public List<Book> loadInBackground() {
-        return null;
+
+        List<Book> books = null;
+        books.add(new Book("g","g","g"));
+        return books;
     }
 
     @Override

@@ -14,7 +14,7 @@ import android.widget.ProgressBar;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks{
+public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<Book>>{
 
     private ProgressBar mProgressBar;
     private ListView mListView;
@@ -50,10 +50,13 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         return new BookLoader(this, mKeyword);
     }
 
+    //in order to override this method make sure when implementing LoaderCallbacks
+    //to also write down the type of Loader that will be used in the implements statement above
     @Override
     public void onLoadFinished(Loader<List<Book>> loader, List<Book> books) {
-        mProgressBar.setVisibility(View.GONE);
+        return;
     }
+
 
     @Override
     public void onLoaderReset(@NonNull Loader loader) {
